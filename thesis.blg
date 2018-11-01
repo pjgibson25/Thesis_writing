@@ -1,0 +1,15 @@
+This is BibTeX, Version 0.99dThe top-level auxiliary file: thesis.aux
+The style file: amsalpha.bst
+I found no \citation commands---while reading file thesis.aux
+Database file #1: thesisbib.bib
+I was expecting a `,' or a `}'---line 1478 of file thesisbib.bib
+ :  
+ :  year={2007},
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+You're missing a field name---line 1959 of file thesisbib.bib
+ :   
+ :   %author = "K. Singer and M. Tscherneck and M. Eichhorn and M. Reetz-Lamour and M. Weidem\"{u}ller",
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+(There were 3 error messages)
