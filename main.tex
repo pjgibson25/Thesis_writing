@@ -1,0 +1,65 @@
+\documentclass[12pt]{report}
+\usepackage{WUbiblio,WUthesis}
+%\usepackage[latin1]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb} 
+\usepackage{graphicx}
+\graphicspath{ {images/} }
+\usepackage{listings}
+\usepackage{minted}
+%\usepackage[revision]{revann}
+\usepackage{tikz}
+\usepackage{array}
+\usepackage{subcaption}
+\begin{document}
+
+\title{An Analysis of Fireballs from Willamette's D6 AllSky Survey}
+\author{Peter Joesph Gibson}
+\thesissupervisor{Dr. Jed Rembold}
+
+\maketitle
+
+
+\newpage
+
+\begin{center}
+\textbf{Presentations and publications}
+
+P. Gibson, Analyzing Fireballs from Willamette's D6 AllSky Survey, Oral Presentation at Willamette University, Research Seminar I: Status Report Presentation (December 2018)
+\bigskip
+
+P. Gibson, Analyzing Fireballs from Willamette's D6 AllSky Survey, Oral Presentation at Willamette University, Advanced Techniques in Experimental Physics: Senior Proposal Presentation (April 2018)
+
+\bigskip
+\end{center}
+
+
+
+\begin{acknowledgments}
+\input{acknowledgments.tex}
+\end{acknowledgments}
+
+\begin{abstract}
+\input{abstract.tex}
+\end{abstract}
+
+\tableofcontents
+%\listoftables
+\listoffigures
+
+\input{introduction.tex}
+\input{background.tex}
+\input{methods.tex}
+\input{data.tex}
+\input{conclusion.tex}
+\input{appendix.tex}
+
+%\bibliographystyle{urcsbiblio}
+\bibliographystyle{amsalpha}
+\bibliography{Bibliography}
+
+\appendix
+%\include{notebook}
+
+\end{document}
