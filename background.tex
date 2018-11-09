@@ -114,7 +114,15 @@ Around the size of a basketball, the D6 AllSky camera is extremely compact.
 Not only is it small, but it only relies on a single power chord for power.  
 Because of this, the camera can be relocated to any setting that has a power source.  
 We should note that an external portable power source is a potential upgrade to this system that may take place in future creations.
-Most other systems are rooted to extremely powerful computers that have little to no mobility.
+Most other systems are rooted to extremely powerful computers that have little to no mobility as shown in Fig. \ref{immobile}.
+
+\begin{figure}[ht!]
+  \centering
+  \includegraphics[scale=0.3]{images/othercam.jpg}
+  \caption{An entrenched alternative AllSky camera.}
+  \label{immobile}
+\end{figure}
+
 This presents issues related to being rooted in one location.
 For example, if a tree were to grow near the camera, it would need to be chopped down or the entire system may need to be relocated.
 With the lightweight and easily movable D6 AllSky camera, relocation is not a difficult process.
@@ -130,13 +138,62 @@ Providing this cost efficient alternative could be a great way to expand the fie
 
 
 \section{Photometry}
+After collecting videos of potential fireballs, next comes the task of analyzing the videos.
+Luke Russell, advised by Dr. Jed Remobld created a photometry program that allows us to get a calibrated intensity light curve for a given video of a fireball.
+Simply running a fireball video through his interactive GUI allows us to access information about luminous properties of the fireball.
+However, limitations to our photometry must be taken into account.
+False positives, extinction, and other bothering problems must be accounted for while creating our fireball catalog.
 
 \subsection{Existing photometry tools}
+When running a video through the existing photometry script, the user must interact with the program.
+After selecting a file to run through the program, the user must find the frame in the video which the fireball first becomes visible.  
+Then, the user must left click on the fireball.
+After this, the user must right click on a reference star with a known magnitude.
+This step requires a bit of knowledge and will hopefully be automated throughout this project.
+After selecting both of these and entering in the known magnitude of the reference star, the program will automatically track the fireball throughout the following frames.
+By using Gaussian fits to the photometric data, the program is able to center its view on the fireball and determine its size throughout its path.
+Throughout this process, the video also sums the photon counts for each fireball pixel for each frame.
+This photon count gives us the magnitude of the fireball at a given point in it's path.
+Doing this for each frame results in a light curve that shows the magnitude as a function of time.  
+By using relations given in the Analysis section, we are able to calibrate the magnitude and from that calculate the intensity which yield the valuable light curve.
+From this light curve, we can then move on to further analysis.
 
+\subsection{Planes, \st{Trains} Bugs, and \st{Automobiles} Extinction}
 
+\begin{figure}[ht!]
+  \centering
+  \includegraphics[scale=0.3]{images/racoon_cam.jpg}
+  \caption{A fireball/raccoon hybrid.}
+  \label{raccoon}
+\end{figure}
 
-\subsection{Planes, \st{Trains} Bugs, and \st{Automobiles} other Interference}
+While it is able to capture fireballs, the D6 AllSky camera still picks up a great deal of false positives.
+In an initial sample of over $700$ videos, only $2$ of them contained real events.
+The vast majority of the videos were of bugs crawling across the acrylic dome.
+Because the bugs are illuminated by nearby light, they appear to be bolides traveling across the screen.
+Many bugs are featured in several videos as they have a tendency to move, stop somewhere, and move again.
+While this is somewhat problematic, we aim to implement several steps to limit the number of false positive bug cases.
 
+In addition to bugs, airplanes, satellites, and iridium flares provide false-positive videos.
+Their near-linear motion and bright presence are an instant trigger for the fireball detection.
+This is a more difficult bug to fix when compared to the bug bug :).
+These two cases are just small examples of false positives that result in difficult data to process.
+
+\begin{figure}[ht!]
+  \centering
+  \includegraphics[scale=0.4]{images/extinction.JPG}
+  \caption{A depiction of atmospheric extinction.}
+  \label{extinc}
+\end{figure}
+
+A larger problem in data analysis stems from the phenomena of atmospheric extinction.
+As shown in Fig. \ref{extinc}, we observe that when looking close to the horizon (S$_h$ in the image), light must travel through a larger volume of atmosphere than it does for an observation close to the zenith (S$_z$ in the image).  
+Because the light travels through more atmosphere, more of the light is absorbed by gases or scattered by air particulates \cite{atmospheric}.
+A prime example of atmospheric extinction is that of the sun. 
+When directly overhead, the sun is at its brightest and one should never directly look into it.
+However, close to the horizon, the sun appears more red and can be looked at directly.
+Because a rising or setting sun's rays must travel through more atmosphere, they are scattered due to this extinction and become more comfortably visible.
+Part of this project will include accounting for atmospheric extinction in a secondary photometric analysis script.
 
 
 
