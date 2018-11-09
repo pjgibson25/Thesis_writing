@@ -54,17 +54,75 @@ However, when objects escape their collection due to other interactions (gravita
 
 Studying these near-Earth objects can give us good estimates for how many objects you might expect to see pass through a given area of space within a specific amount of time. 
 This measurement is called flux.
-By determining flux, we can more accurately predict the 
+By determining flux, we can more accurately predict the likelihood of objects in space being hit by near-Earth objects. 
+Although the case may have been an extreme one, the space satellite Olympus was struck and destroyed by a meteoroid during the Perseid meteor shower in 1993 \cite{threat}.
+Additionally, given the relationships between the number of objects hitting earth per time for different objects, we can estimate the probability of extremely large impacts on earth.
+These estimates, similarly to predictions surrounding volcanic or earthquake activity, give us insight into past events and help us foresee likelihoods of future events.
+
+
+
+
+
+
 
 
 \section{The D6 AllSky Camera}
 
+The Willamette University D6 Allsky camera was created in 2016 to capture the paths of fireballs throughout the night sky. 
+The aim of the project was to create an economically feasible and easily mobile observational system.
+By using a state-of-the-art camera system, a structure, some necessary reinforcement materials, and a programmable microcomputer, Kyle McSwain alongside Dr. Jed Rembold were able to get a functioning camera system \cite{mcswain_using_2016}. 
+The camera resembles a Star Wars droid, and acquired its name from this inspiration.
+This resemblence (paired with a little imagination) is shown in Fig. \ref{droid}.
+The D6 Allsky camera is currently functioning properly and has been taking data since the summer of 2018.  
+Below, we will discuss the composition of the D6 AllSky Camera while also highlighting what makes it significant.
+
+\begin{figure}[ht!]
+  \centering
+  \includegraphics[scale=0.7]{images/allsky_camera.png}
+  \caption{The Willamette D6 AllSky Camera (2016) \cite{mcswain_using_2016}.}
+  \label{droid}
+\end{figure}
+
 \subsection{Composition}
 
+The operational aspect of the D6 AllSky Camera is composed primarily of 5 different pieces: the camera housing, CCD camera, thermostat, digitizer, and the microcomputer (used to be raspberry pi).
+The acrylic dome and PVC shell are both vital parts of our system. 
+The dome itself is a transparent half sphere that sits on top of a PVC cylinder that holds the system together.
+It acts as a protective layer between the camera and the outside environment.  
+Without this feature, the camera would be subject to dew, bug contamination, and other undesired interferences.
 
+The CCD camera is perhaps the most important feature of the camera.  
+The Watec $902$H$2$ CCD camera uses a fish-eye lens to capture incident light from the night's sky.  
+It was chosen due to its extremely high sensitivity and resolution \cite{mcswain_using_2016}.
+While some fireball camera stations are composed of multiple high resolution, more narrow lensed cameras, the D6 AllSky system only contains one camera mostly for economic reasons.  
+This camera was chosen in part due to its compact size, an important part of the highly valued versatility of our system. 
+The camera is kept at a relatively constant temperature by a thermostat and a fan system. 
+Because of its constant use throughout the night, the system itself can get very warm and therefore needs some thermal regulation.
+
+The digitizer is the tool that allows us to transfer camera information to the microcomputer efficiently.  
+The camera outputs analog signals which through the digitizer are converted to digital signals.
+Through cable connections, the digitizer then sends the new output to the microcomputer where the initial analysis is run. 
+The microcomputer takes the frames from the camera's running video and scans for systematic changes in brightness.
+These changes then trigger the recording and storage of a new video, which is saved for further photometric analysis.
+By combining these parts into one system, we are able to capture and catalog fireball events.
 
 \subsection{Uniqueness}
 
+While there are several similarities in the composition of our AllSky camera to existing systems, there are several key differences.
+The most prominent of these are the size, versatility, and cost of our system.
+Around the size of a basketball, the D6 AllSky camera is extremely compact.  
+Not only is it small, but it only relies on a single power chord for power.  
+Because of this, the camera can be relocated to any setting that has a power source.  
+We should note that an external portable power source is a potential upgrade to this system that may take place in future creations.
+Most other systems are rooted to extremely powerful computers that have little to no mobility.
+This presents issues related to being rooted in one location.
+For example, if a tree were to grow near the camera, it would need to be chopped down or the entire system may need to be relocated.
+With the lightweight and easily movable D6 AllSky camera, relocation is not a difficult process.
+
+Most importantly, the D6 AllSky camera is a less expensive alternative to other fireball analysis tools.  
+The ingenuity of running initial analysis on a microcomputer allows the D6 AllSky camera to cost a fraction of what professional systems cost.
+Although large professional organizations produce copious amounts of wonderful data, in the field of fireball research, non-intensified systems outnumber intensified systems $2:1$ \ref{Molau}.  
+Providing this cost efficient alternative could be a great way to expand the field of fireball research and in turn provide a better understanding of the near-Earth objects in our solar system.
 
 
 
@@ -77,7 +135,7 @@ By determining flux, we can more accurately predict the
 
 
 
-\subsection{Airplanes and other interference}
+\subsection{Planes, \st{Trains} Bugs, and \st{Automobiles} other Interference}
 
 
 
@@ -185,7 +243,6 @@ From this data set and other existing data sets, Brown created Eq. \ref{browneq}
 
 
 Figure \ref{powerlaw} shows this relationship alongside data taken from many different research groups.  
-
 In his research, Brown used existing assumptions (mentioned in the Analysis section) for the blackbody distribution and the velocity.  
 
 
