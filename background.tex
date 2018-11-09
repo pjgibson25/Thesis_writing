@@ -195,23 +195,72 @@ However, close to the horizon, the sun appears more red and can be looked at dir
 Because a rising or setting sun's rays must travel through more atmosphere, they are scattered due to this extinction and become more comfortably visible.
 Part of this project will include accounting for atmospheric extinction in a secondary photometric analysis script.
 
-
-
-
-
-
 \section{Analysis}
 
-\subsubsection{Parameters of Interest}
+When creating the catalog, we must first recognize real events.  
+After running the videos of those events through our photometry script, further efforts must be made to calculate properties such as luminous efficiency, total calibrated energy, velocity, and mass.
+
+
+
+
+\subsection{Parameters of Interest}
+
+When analyzing our fireball sample, we will make several key assumptions.  
+Firstly, we assume the velocity of the fireball to be traveling at $________$ meters per second.
+Because we do not have multiple cameras at different locations, we cannot confidently estimate the trajectory of the fireball in question.
+Although some may view this as sloppy, several other sources perform similar estimations and are able to consistent flux rates with other more well-recognized systems.
+Additionally, we will assume a luminous efficiency of $________$.
+
+Using these assumptions we can use the following equation:
+
+\begin{equation}
+m = \int \frac{2L}{\tau v^2} dt
+\end{equation}
+where $L$ is the luminosity, $dt$ is the change in time, $v$ is velocity, and $tau$ is the luminous efficiency.
+This will give us a precise estimate for the initial mass of the object in question.
+Paired with our assumption that fireballs on average have a density of $_______$ and a generally spherical shape, we can calculate the diameter using the following equation:
+\begin{equation}
+d = 2(\frac{3m}{4\pi \rho})^{1/3}
+\end{equation}
+where $\rho$ represents the density of the fireball prior to entering the atmosphere.
+
+In addition to calculating the mass and diameter of the fireball, we also aim to calculate the optical energy and total calibrated energy.
+These can be calculated using equations.
+
+Insert energy equations here.  I do not know where they exist.
+
 
 
 
 \subsection{Flux}
 
+The most important data yield we hope to get is a flux consistent with that of other existing surveys.
+We hope to collect data that matches the following equation:
+\begin{equation}
+\log N = a_0 - b_0\log E 
+\end{equation}
+where $N$ is the total number of objects colliding with earth each year and $E$ is the respective energy of the sample in kilotons \cite{brown_p_flux_2002}.
+In this equation, $a_0 = 0.5677 \pm 0.015$ while $b_0 = 0.90 \pm 0.03$.
+This relationship is known as a power law, as many professional AllSky systems' data match it well.
+The flux is dependent on three things: the number of events, the time of observation, and the area of the sky observed.
+The longer we use the system, the more precise, but not necessarily more consistent, our flux will be. 
 
+One factor that is particularly difficult to deal with when considering flux is the area of the sky that is being observed at a given time.
+Derived using basic trigonometry, we know 
 
+\begin{equation}
+\text{Sky Coverage} = \Omega(h+r)^2
+\end{equation}
 
+where $\Omega$ is the steradian, or solid angle from earth, $h$ is the height above Earth's surface, and $r$ is the radius of Earth. 
+The CCD fish-eye camera that we use spans approximately $140\deg$.
+When assuming that the height of the fireball is approximately $75$km from Earth's surface, we learn that our camera covers about $119,000$km$^2$.  
+That area translates to about $0.023$ percent of Earth's total surface.
+This fact solidifies the importance of many fireball camera systems, as an individual only covers a small fraction of Earth's total surface area.
 
+One might naively assume that the total observation area would remain consistent each night.
+However, one must consider clouds and fog when calculating the overall sky area covered.
+This consideration will be dealt with in our secondary analysis and is further discussed in the methods section.
 
 
 \section{Existing Surveys}
