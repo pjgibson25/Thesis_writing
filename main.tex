@@ -1,19 +1,27 @@
 \documentclass[12pt]{report}
-\usepackage{WUbiblio,WUthesis}
+\usepackage{WUthesis}
 %\usepackage[latin1]{inputenc}
 \usepackage{amsmath}
 \usepackage{amsfonts}
 \usepackage{amssymb} 
 \usepackage{graphicx}
 \graphicspath{ {images/} }
-\usepackage{listings}
-\usepackage{minted}
+%\usepackage{listings}
+%\usepackage{minted}
 %\usepackage[revision]{revann}
 \usepackage{tikz}
 \usepackage{array}
 \usepackage{subcaption}
 \usepackage{caption}
 \usepackage{soul}
+\usepackage{siunitx}
+\usepackage{physics}
+\usepackage[style=numeric, url=false, isbn=false]{biblatex}
+\addbibresource{thesis_bib.bib}
+
+\newcommand{\comment}[1]{{\bf\color{violet} [\scriptsize #1]}}
+
+
 \begin{document}
 
 
@@ -53,16 +61,17 @@ P. Gibson, Analyzing Fireballs from Willamette's D6 AllSky Survey, Oral Presenta
 
 \input{introduction.tex}
 \input{background.tex}
-\input{methods.tex}
-\input{data.tex}
-\input{conclusion.tex}
-\input{appendix.tex}
+%\input{methods.tex}
+%\input{data.tex}
+%\input{conclusion.tex}
+%\input{appendix.tex}
 
 %\bibliographystyle{urcsbiblio}
-\bibliographystyle{amsalpha}
-\bibliography{thesis_bib}
+%\bibliographystyle{amsalpha}
+%\bibliography{thesis_bib}
+\printbibliography
 
-\appendix
+%\appendix
 %\include{notebook}
 
 \end{document}
