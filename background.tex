@@ -1,44 +1,41 @@
 \chapter{Background}
 
-Thanks to a protective atmosphere, Earth can withstand impacts from dust-sized to boulder-sized objects traveling faster than bullets without so much as a dent on Earth's surface.
-While most of these near-Earth objects are extremely small and don't leave much of a trace, the larger objects can leave a light trail visible from Earth's surface as they burn up in our atmosphere.
-In this chapter, we will discuss the classification of near-Earth objects, the camera system and equations we will use for our analysis, the existing photometry tools we have, along with other existing surveys.
+Thanks to a protective atmosphere, Earth\comment{Oh sure, now you start capitalizing it...} can withstand impacts from dust to boulder-sized objects traveling faster than bullets without so much as a dent on Earth's surface.
+While most of these near-Earth objects are extremely small and don't leave much of a trace, the larger objects can leave a light trail\comment{I can guess, but what do you mean by ``light trail'' here?} visible from Earth's surface as they burn up in our atmosphere.
+In this chapter, we will discuss the classification of near-Earth objects, the camera system and theory behind our analysis, the current photometry tools we have, along with other existing surveys.\comment{What exactly about other existing surveys?}
 
 
 \section{Description of Fireballs}
 
-When considering types of near-Earth objects, many names come to mind.  
-Asteroids, meteors, meteorites, and fireballs are often used interchangeably. 
+When considering types of near-Earth objects, many names come to mind: asteroids, meteors, meteorites, and fireballs are all often used interchangeably. 
 However, there are several key distinctions between these objects.  
-Asteroids are the largest of this group and are generally over $10$m in diameter \cite{steel_meteoroid_1996}. 
-These large objects are responsible for large craters that are visibly present on the moon.  
-Meteoroids are anywhere between $10 \mu$m and $10$m and are drastically more common than asteroids.  
+Asteroids are the largest of this group and are generally over \SI{10}{\meter} in diameter \cite{steel_meteoroid_1996}. 
+These large objects are responsible for large craters that are visibly present on the moon.\comment{Lots of ``large'' in these past two sentences}  
+Meteoroids are anywhere between \SI{10}{\micro\meter} and \SI{10}{\meter} and are far more numerious than their asteroid cousins.  
 
-Meteoroids that pass through earth's atmosphere become meteors.
-As meteors pass through the atmosphere, they begin to ablate, or release light.  
-This phenomena happens because the interactions between the meteor molecules with the air molecules produce lots of energy, some of which goes into the production of light.
-This light can be measured in terms of apparent magnitude.
-Magnitude is represented on a $\log_10$ scale and dimmer objects are represented by high numbers while brighter objects are lower.  
-If the meteor releases visible light below an apparent magnitude of $-4$ qualify as bolides, or fireballs.
-For reference, Venus is a magnitude $-4.4$ planet while the dimmer Jupiter has a magnitude of $-2.1$ \cite{rao_venus_nodate}.
-
-
+Meteoroids that pass through Earth's atmosphere become meteors.
+As meteors pass through the atmosphere, they begin to ablate, or release light.\comment{Ablating and releasing light are not synonymous}
+This phenomena happens because the interactions between meteor molecules and air molecules produce lots of energy, some of which goes into the production of light.\comment{Where is the energy coming from? What exactly are these ``interactions''?}
+The amount of released light that reaches an observer can be measured in terms of apparent magnitude.
+Magnitude is represented on a $\log_10$ scale where dimmer objects are represented by high numbers and brighter objects are lower.\comment{This seems an obvious place for the actual equation and reference.}  
+If the meteor releases visible light below an apparent magnitude of $-4$ qualify as bolides, or fireballs.\comment{Sentence is convoluted.}
+For reference, Venus is a magnitude $-4.4$ planet while the dimmer Jupiter has a magnitude of $-2.1$ \cite{rao_venus_nodate}.\comment{Venus's magnitude changes as it goes through its phases, so you might want to be specific about which phase you are talking about.}
 If an object is massive enough to withstand the pressures of Earth's atmosphere and make it to the surface of Earth, it is classified as a meteorite. 
-These are extremely uncommon, but provide valuable information about the rock's origin.
-Figure \ref{jed} shows the relationship between these 4 objects.
+These are extremely\comment{how much so?} uncommon, but can provide valuable information about the rock's origins.
+Figure \ref{jed} summarizes the relationship between these 4 terms.
 
 \begin{figure}[ht!]
   \centering
   \includegraphics[scale=0.5]{images/jedmasterpiece.png}
-  \caption{A depiction of near-Earth object classification.}
+  \caption{A depiction of near-Earth object classification.\inlinecomment{Include a description of each type in the caption itself. Imagine someone not reading the text and just reading the captions. And why is it so tiny?}}
   \label{jed}
 \end{figure}
 
-We may further classify near-Earth objects into two categories: sporadic events and meteor shower events. 
+We may further classify near-Earth objects into two categories: sporadic events and meteor shower events.\comment{We aren't really classifying the objects here, rather the fireball events. And the type of event tells us information about the object.}
 Meteor showers occur when Earth's orbit crosses paths with the orbit of a collection of debris. 
 Such collections often orbit large masses such as Jupiter or the sun \cite{trigo-rodriguez_2006_2007}.  
-For example, the Perseid meteor shower has a highly elliptical orbit around the sun as seen in Fig. \ref{perceid}.  
-A majority of the composition of these showers stems from the decomposition of comets throughout space.  
+For example, the Perseid meteor shower has a highly elliptical orbit around the sun as seen in Figure \ref{perceid}.  
+A majority of the composition of these showers stems from the decomposition of comets throughout space.\comment{I get it, but that is a heck of a confusing sentence.}
 
 \begin{figure}[ht!]
   \centering
@@ -48,11 +45,11 @@ A majority of the composition of these showers stems from the decomposition of c
 \end{figure}
 
 In contrast, there is debris in space that is not connected to any meteor shower. 
-These are called sporadic events. 
-Because gravity tends to bring objects together, we see mostly collections of debris.
-However, when objects escape their collection due to other interactions (gravitational or electromagnetic), they still have a chance of colliding with Earth.
+These are called sporadic events.\comment{Again, just nomenclature. The event and the object are separate things.} 
+Because gravity tends to bring objects together, we see mostly collections of debris.\comment{What are you trying to say here? This is confusing.}
+However, when objects escape their collection due to other interactions (gravitational or electromagnetic), they still have a chance of colliding with Earth.\comment{This seems an odd end to the paragraph.}
 
-Studying these near-Earth objects can give us good estimates for how many objects you might expect to see pass through a given area of space within a specific amount of time. 
+\comment{I might almost think this whole paragraph could be moved to the Introduction and fit there better.}Studying these near-Earth objects can give us good estimates for how many objects you might expect to see pass through a given area of space within a specific amount of time.
 This measurement is called flux.
 By determining flux, we can more accurately predict the likelihood of objects in space being hit by near-Earth objects. 
 Although the case may have been an extreme one, the space satellite Olympus was struck and destroyed by a meteoroid during the Perseid meteor shower in 1993 \cite{bobrowsky_comet/asteroid_nodate}.

@@ -14,19 +14,24 @@
 \usepackage{subcaption}
 \usepackage{caption}
 \usepackage{soul}
-\usepackage{siunitx}
+\usepackage[per-mode=symbol]{siunitx}
 \usepackage{physics}
 \usepackage[style=numeric, url=false, isbn=false]{biblatex}
 \addbibresource{thesis_bib.bib}
 
-\newcommand{\comment}[1]{{\bf\color{violet} [\scriptsize #1]}}
+\newcommand{\comment}[1]{{\footnote{\color{green!40!black}#1}}}
+\newcommand{\inlinecomment}[1]{{\bf\color{green!40!black} [\scriptsize #1]}}
+\newcommand*\circled[1]{%
+  \tikz[baseline=(char.base)]\node[shape=circle,fill=green!60!black!20!white, draw=green!40!black,,text=black,inner sep=0.2pt,font=\tiny\bf,minimum size=8pt] (char) {#1};}
+\renewcommand\thefootnote{\protect\circled{\arabic{footnote}}}
+
 
 
 \begin{document}
 
 
 \title{An Analysis of Fireballs from Willamette's D6 AllSky Survey}
-\author{Peter Joesph Gibson}
+\author{Peter Joseph Gibson}
 \thesissupervisor{Dr. Jed Rembold}
 
 \maketitle
