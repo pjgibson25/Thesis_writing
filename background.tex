@@ -65,94 +65,90 @@ These estimates, similarly to predictions surrounding volcanic or earthquake act
 
 \section{The D6 AllSky Camera}
 
-The Willamette University D6 Allsky camera was created in 2016 to capture the paths of fireballs throughout the night sky. 
-The aim of the project was to create an economically feasible and easily mobile observational system.
-By using a state-of-the-art camera system, a structure, some necessary reinforcement materials, and a programmable microcomputer, Kyle McSwain alongside Dr. Jed Rembold were able to get a functioning camera system \cite{mcswain_using_2016}. 
-The camera resembles a Star Wars droid, and acquired its name from this inspiration.
-This resemblence (paired with a little imagination) is shown in Fig. \ref{droid}.
-The D6 Allsky camera is currently functioning properly and has been taking data since the summer of 2018.  
-Below, we will discuss the composition of the D6 AllSky Camera while also highlighting what makes it significant.
+The Willamette University D6 Allsky\comment{probably shouldn't be capitalized} camera was created in 2016 to capture images of fireballs streaking through the night sky. 
+The aim of the project was to create an economically feasible and highly mobile observational system.
+Enclosing a state-of-the-art camera system in a portable structure along with necessary supporting devices, including a controlling Raspberry Pi, Kyle McSwain alongside Dr.\ Jed Rembold were able to get a functioning camera system \cite{mcswain_using_2016}.\comment{This sentence is still really long. I'd break it up more.} 
+The assembly resembles a Star Wars astromech droid, and acquired its name from this inspiration.
+The enclosure with visible camera is shown in Fig. \ref{droid}.
+The D6 allsky camera is currently operational and has been gathering data since the summer of 2018.  
+Below, we will discuss the design of the D6 allSky camera while also highlighting what makes it significant.
 
 \begin{figure}[ht!]
   \centering
   \includegraphics[scale=0.7]{images/allsky_camera.png}
-  \caption{The Willamette D6 AllSky Camera (2016) \cite{mcswain_using_2016}.}
+  \caption{The Willamette D6 AllSky Camera (2016) Paired with a little imagination it resembles an astromech droid from Star Wars.\inlinecomment{We should get a new image of this, as it has the sealing cowl along the top now.}}
   \label{droid}
 \end{figure}
 
 \subsection{Composition}
 
-The operational aspect of the D6 AllSky Camera is composed primarily of 5 different pieces: the camera housing, CCD camera, thermostat, digitizer, and the microcomputer (used to be raspberry pi).
-The acrylic dome and PVC shell are both vital parts of our system. 
+The components of the D6 allSky camera are comprised primarily of 5 different pieces: the camera housing, a CCD camera, a thermostat, a digitizer, and the Raspberry Pi to control everything.
+The acrylic dome and PVC shell form the exterior of our system. 
 The dome itself is a transparent half sphere that sits on top of a PVC cylinder that holds the system together.
-It acts as a protective layer between the camera and the outside environment.  
-Without this feature, the camera would be subject to dew, bug contamination, and other undesired interferences.
+It\comment{the dome or the cylinder?} acts as a protective layer between the camera and the outside environment.  
+Without this feature, the camera would be subject to rain, snow, dew, bug contamination, and other undesired effects.
 
-The CCD camera is perhaps the most important feature of the camera.  
-The Watec $902$H$2$ CCD camera uses a fish-eye lens to capture incident light from the night's sky.  
-It was chosen due to its extremely high sensitivity and resolution \cite{mcswain_using_2016}.
-While some fireball camera stations are composed of multiple high resolution, more narrow lensed cameras, the D6 AllSky system only contains one camera mostly for economic reasons.  
-This camera was chosen in part due to its compact size, an important part of the highly valued versatility of our system. 
-The camera is kept at a relatively constant temperature by a thermostat and a fan system. 
+The CCD camera is perhaps the most important feature of the camera\comment{too many cameras}.  
+The Watec $902$H$2$ CCD camera uses a fish-eye lens to capture incident light from the night's sky.\comment{So the camera is separate from the lens. Probably should talk them separately.}
+It was chosen due to its extremely high sensitivity and resolution \cite{mcswain_using_2016}.\comment{Hmmm, it'd be nicer to source some specs here rather than an old thesis.}
+While some fireball camera stations are composed of multiple high resolution, more narrow lensed cameras, the D6 AllSky system only contains one camera mostly for economic reasons.\comment{I'd actually flesh this out more in its own paragraph for a nicer comparison to say the CAMS systems.}
+
 Because of its constant use throughout the night, the system itself can get very warm and therefore needs some thermal regulation.
+The camera is kept at a relatively constant temperature by a thermostat and a fan system. \comment{Really most of the thermistat is there to \emph{heat} the system to ensure it stays above the dew point.}
 
-The digitizer is the tool that allows us to transfer camera information to the microcomputer efficiently.  
-The camera outputs analog signals which through the digitizer are converted to digital signals.
-Through cable connections, the digitizer then sends the new output to the microcomputer where the initial analysis is run. 
-The microcomputer takes the frames from the camera's running video and scans for systematic changes in brightness.
+The camera outputs an analog signal which requires the use of a digitizer before it can be processed by the Raspberry Pi.
+The coaxial signal is sent to the digitizer before connecting to the Raspberry Pi via USB.
+
+\comment{This bit doesn't really seem like it fits in ``Composition"}The Pi then takes the frames from the camera's running video and scans for systematic changes in brightness.
 These changes then trigger the recording and storage of a new video, which is saved for further photometric analysis.
 By combining these parts into one system, we are able to capture and catalog fireball events.
 
-\subsection{Uniqueness}
+\subsection{Uniqueness}\comment{Should this be here or after you've talked about other systems? It might actually be better to discuss the background of fireballs and \emph{then} discuss our setup.}
 
-While there are several similarities in the composition of our AllSky camera to existing systems, there are several key differences.
+While there are several similarities in the composition of our allSky camera to existing systems, there are several key differences.
 The most prominent of these are the size, versatility, and cost of our system.
-Around the size of a basketball, the D6 AllSky camera is extremely compact.  
+Around the size of a basketball, the D6 allSky camera is extremely compact.  
 Not only is it small, but it only relies on a single power chord for power.  
-Because of this, the camera can be relocated to any setting that has a power source.  
-We should note that an external portable power source is a potential upgrade to this system that may take place in future creations.
-Most other systems are rooted to extremely powerful computers that have little to no mobility as shown in Fig. \ref{immobile}.
+Because of this, the camera can be easily picked up and relocated to any setting that has a power source.  
+The system has low power requirements and it should be possible to run from a battery if remote placement is desirable in the future.
+Most other\comment{Very vague. Specific and reference examples would be better.} systems are rooted to extremely powerful computers that have little to no mobility as shown in Fig. \ref{immobile}.
 
 \begin{figure}[ht!]
   \centering
   \includegraphics[scale=0.3]{images/othercam.jpg}
-  \caption{An entrenched alternative AllSky camera.}
+  \caption{An entrenched alternative allSky camera.\inlinecomment{Should expand on this. At glance this looks hardly different from ours, and maybe even smaller?}}
   \label{immobile}
 \end{figure}
 
 This presents issues related to being rooted in one location.
-For example, if a tree were to grow near the camera, it would need to be chopped down or the entire system may need to be relocated.
-With the lightweight and easily movable D6 AllSky camera, relocation is not a difficult process.
+For example, if a tree were to grow near the camera, it would need to be chopped down or the entire system may need to be relocated.\comment{A tree is a pretty slow growing thing so might not be the best example. What if a new building is erected nearby or a large cooling units is added to the roof of the building?}
+With the lightweight and portable D6 allSky camera, relocation is not a difficult process.
 
-Most importantly, the D6 AllSky camera is a less expensive alternative to other fireball analysis tools.  
-The ingenuity of running initial analysis on a microcomputer allows the D6 AllSky camera to cost a fraction of what professional systems cost.
-Although large professional organizations produce copious amounts of wonderful data, in the field of fireball research, non-intensified systems outnumber intensified systems $2:1$ \cite{gural_review_2005}.  
-Providing this cost efficient alternative could be a great way to expand the field of fireball research and in turn provide a better understanding of the near-Earth objects in our solar system.
-
-
-
-
+Most importantly, the D6 AllSky camera is a less expensive alternative to other fireball analysis tools.\comment{If you are going to say most importantly, you better be able to back that up with hard numbers, which I'm not sure you can.} 
+The ingenuity of running initial analysis on a microcomputer allows the D6 allSky camera to cost a fraction of what professional systems cost.
+Although large professional organizations produce copious amounts of wonderful data, in the field of fireball research, non-intensified systems outnumber intensified systems $2:1$ \cite{gural_review_2005}. \comment{What the heck does intensified and non-intensified mean in this context?!} 
+Providing a cost efficient alternative could be a great way to expand the field of fireball research and in turn provide a better understanding of the near-Earth objects in our solar system.
 
 
 \section{Photometry}
 After collecting videos of potential fireballs, next comes the task of analyzing the videos.
-Luke Russell, advised by Dr. Jed Remobld created a photometry program that allows us to get a calibrated intensity light curve for a given video of a fireball.
+Luke Russell, advised by Dr. Jed Rembold, wrote a photometry program in Python that allows us to get a calibrated light curve for a given video of a fireball.
 Simply running a fireball video through his interactive GUI allows us to access information about luminous properties of the fireball.
 However, limitations to our photometry must be taken into account.
-False positives, extinction, and other bothering problems must be accounted for while creating our fireball catalog.
+False positives, extinction, and other error factors must be accounted and corrected for while creating our fireball catalog.
 
 \subsection{Existing photometry tools}
-When running a video through the existing photometry script, the user must interact with the program.
-After selecting a file to run through the program, the user must find the frame in the video which the fireball first becomes visible.  
+When running a video through the existing photometry script, the user must interact with the program.\comment{Sure?}
+After selecting a file to run through the program, the user must find the frame in the video which the fireball first becomes visible.\comment{This process seems spelled out in an overly detailed way here.}
 Then, the user must left click on the fireball.
 After this, the user must right click on a reference star with a known magnitude.
 This step requires a bit of knowledge and will hopefully be automated throughout this project.
 After selecting both of these and entering in the known magnitude of the reference star, the program will automatically track the fireball throughout the following frames.
 By using Gaussian fits to the photometric data, the program is able to center its view on the fireball and determine its size throughout its path.
 Throughout this process, the video also sums the photon counts for each fireball pixel for each frame.
-This photon count gives us the magnitude of the fireball at a given point in it's path.
+This photon count gives us the magnitude of the fireball at a given point in its path.
 Doing this for each frame results in a light curve that shows the magnitude as a function of time.  
-By using relations given in the Analysis section, we are able to calibrate the magnitude and from that calculate the intensity which yield the valuable light curve.
+By using relations given in the Analysis section\comment{If you are going to talk about them here, you can and should at least introduce the background behind them.}, we are able to calibrate the magnitude and from that calculate the intensity which yield the valuable light curve.
 From this light curve, we can then move on to further analysis.
 
 \subsection{Planes, \st{Trains} Bugs, and \st{Automobiles} Extinction}
@@ -160,37 +156,37 @@ From this light curve, we can then move on to further analysis.
 \begin{figure}[ht!]
   \centering
   \includegraphics[scale=0.3]{images/racoon_cam.jpg}
-  \caption{A fireball/raccoon hybrid.}
+  \caption{An elusive fireball/raccoon hybrid.}
   \label{raccoon}
 \end{figure}
 
-While it is able to capture fireballs, the D6 AllSky camera still picks up a great deal of false positives.
+While it is able to capture fireballs, the D6 allSky camera still picks up a great deal of false positives.
 In an initial sample of over $700$ videos, only $2$ of them contained real events.
 The vast majority of the videos were of bugs crawling across the acrylic dome.
-Because the bugs are illuminated by nearby light, they appear to be bolides traveling across the screen.
-Many bugs are featured in several videos as they have a tendency to move, stop somewhere, and move again.
-While this is somewhat problematic, we aim to implement several steps to limit the number of false positive bug cases.
+Because the bugs are illuminated by nearby light, they appear to be bright spots traveling across the screen and thus the detection script mistakenly flags them as fireball events.
+Moreover, many bugs are featured in several videos as they have a tendency to move, stop somewhere, and move again.
+While this is somewhat problematic, we aim to implement several steps to limit the number of false positive bug cases.\comment{Should have talked about what those would be, but definitely should now!}
 
-In addition to bugs, airplanes, satellites, and iridium flares provide false-positive videos.
+In addition to bugs, other events such as airplanes, satellites, and Iridium flares provide false-positive videos.
 Their near-linear motion and bright presence are an instant trigger for the fireball detection.
 This is a more difficult bug to fix when compared to the bug bug :).
-These two cases are just small examples of false positives that result in difficult data to process.
+These two cases are just small examples of false positives that result in difficult data to process.\comment{What two cases? The end of this paragraph is a bit disjointed}
 
 \begin{figure}[ht!]
   \centering
   \includegraphics[scale=0.4]{images/extinction.JPG}
-  \caption{A depiction of atmospheric extinction.}
+  \caption{A depiction of atmospheric extinction.\inlinecomment{This isn't really a depiction so much as a very rough diagram showing some direction. A depiction would be clear evidence of an object of constant brightness seeming dimmer near the horizon.}}
   \label{extinc}
 \end{figure}
 
 A larger problem in data analysis stems from the phenomena of atmospheric extinction.
-As shown in Fig. \ref{extinc}, we observe that when looking close to the horizon (S$_h$ in the image), light must travel through a larger volume of atmosphere than it does for an observation close to the zenith (S$_z$ in the image).  
-Because the light travels through more atmosphere, more of the light is absorbed by gases or scattered by air particulates \cite{noauthor_atmospheric_nodate}.
-A prime example of atmospheric extinction is that of the sun. 
-When directly overhead, the sun is at its brightest and one should never directly look into it.
-However, close to the horizon, the sun appears more red and can be looked at directly.
-Because a rising or setting sun's rays must travel through more atmosphere, they are scattered due to this extinction and become more comfortably visible.
-Part of this project will include accounting for atmospheric extinction in a secondary photometric analysis script.
+As shown in Figure \ref{extinc}\comment{references to an image should always come before the image}, we observe that when looking close to the horizon (S$_h$ in the image), light must travel through a larger volume of atmosphere than it does for an observation close to the zenith (S$_z$ in the image).  
+Because the light travels through more atmosphere, more of the light is absorbed by gases or scattered by air particulates \cite{noauthor_atmospheric_nodate}.\comment{Can we not find a better reference for this?}
+A prime example of atmospheric extinction is that of the Sun. 
+When directly overhead, the Sun is at its brightest and one should never directly look into it.
+However, close to the horizon, the Sun appears more red and can be looked at directly.
+Because a rising or setting Sun's rays must travel through more atmosphere, they are scattered due to this extinction and become more comfortably visible.
+Part of this project will include accounting for atmospheric extinction in a secondary photometric analysis script.\comment{What does this involve?}
 
 \section{Analysis}
 
