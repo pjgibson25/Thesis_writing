@@ -188,9 +188,9 @@ However, close to the horizon, the Sun appears more red and can be looked at dir
 Because a rising or setting Sun's rays must travel through more atmosphere, they are scattered due to this extinction and become more comfortably visible.
 Part of this project will include accounting for atmospheric extinction in a secondary photometric analysis script.\comment{What does this involve?}
 
-\section{Analysis}
+\section{Analysis\inlinecomment{Should come up with a different name for this}}
 
-When creating the catalog, we must first recognize real events.  
+When creating the catalog, we must first recognize real events.\comment{What exactly does this mean? Or why is it the lead-off sentence of this section?} 
 After running the videos of those events through our photometry script, further efforts must be made to calculate properties such as luminous efficiency, total calibrated energy, velocity, and mass.
 
 
@@ -199,56 +199,52 @@ After running the videos of those events through our photometry script, further 
 \subsection{Parameters of Interest}
 
 When analyzing our fireball sample, we will make several key assumptions.  
-Firstly, we assume the velocity of the fireball to be traveling at \rule{1cm}{.1pt} meters per second.
-Because we do not have multiple cameras at different locations, we cannot confidently estimate the trajectory of the fireball in question.
-Although some may view this as sloppy, several other sources perform similar estimations and are able to consistent flux rates with other more well-recognized systems.
-Additionally, we will assume a luminous efficiency of \rule{1cm}{.1pt}.
+Firstly, we assume the velocity of the fireball to be traveling at \rule{1cm}{.1pt} meters per second.\comment{This is variable and can be estimated from the type of shower or sporadic that the event corresponds to}
+Additionally, we will assume a luminous efficiency of \rule{1cm}{.1pt}.\comment{This we actually need to find a source for. We should both look into that.}
 
-Using these assumptions we can use the following equation:
-
+Equation \ref{eq:mass} can be used to determine the initial mass of an ablating meteor,
 \begin{equation}
 m = \int \frac{2L}{\tau v^2} dt
+\label{eq:mass}
 \end{equation}
-where $L$ is the luminosity, $dt$ is the change in time, $v$ is velocity, and $tau$ is the luminous efficiency.
-This will give us a precise estimate for the initial mass of the object in question.
-Paired with our assumption that fireballs on average have a density of \rule{1cm}{.1pt} and a generally spherical shape, we can calculate the diameter using the following equation:
+where $L$ is the luminosity, $dt$ is the change in time, $v$ is velocity, and $tau$ is the luminous efficiency. \comment{How are you supposed to know the luminosity?}
+This will give us an estimate for the initial mass of the object in question.
+Paired with our assumption that fireballs on average have a density\comment{this is an easier source to find. Can check my disseration if struggling to find a source.} of \rule{1cm}{.1pt} and a generally spherical shape, we can calculate the diameter using Equation~\ref{eq:diameter}.
 \begin{equation}
 d = 2(\frac{3m}{4\pi \rho})^{1/3}
+\label{eq:diameter}
 \end{equation}
-where $\rho$ represents the density of the fireball prior to entering the atmosphere.
+Here $\rho$ represents the density of the fireball prior to entering the atmosphere.\comment{Is the density changing appreciably throughout?}
 
 In addition to calculating the mass and diameter of the fireball, we also aim to calculate the optical energy and total calibrated energy.
 These can be calculated using equations.
 
-Insert energy equations here.  I do not know where they exist.
-
-
-
+Insert energy equations here.  I do not know where they exist.\comment{This seems very backwards to me. You have to know the optical energy already, that is what you gathered in the form of the light curve in a calibrated form. I'm actually more concerned about finding the luminosity at the moment given that we aren't going to have an accurate gauge of the distance to the fireball. I guess we are going to have to estimate it from height in the atmosphere, but this will bear examination.}
 
 \subsection{Flux}
 
-The most important data yield we hope to get is a flux consistent with that of other existing surveys.
-We hope to collect data that matches the following equation:
+The most important data yield we hope to get is a flux consistent with that of other existing surveys.\comment{Terminology here. We really want to get a mass distribution consistant with other surveys. That is the more exact measurement. The flux probably agrees if that does. If the mass distribution doesn't agree but the flux does, then that probably tells us something more about our calibration than our system.}
+We hope to collect data that matches the following equation:\comment{100\% this should be presented in light of what others have found and that we'd like to check our results against. You don't really gather data to see if it matches an equation.}
 \begin{equation}
-\log N = a_0 - b_0\log E 
+\log N = a_0 - b_0\log E
+\label{eq:browneq}
 \end{equation}
 where $N$ is the total number of objects colliding with earth each year and $E$ is the respective energy of the sample in kilotons \cite{brown_p_flux_2002}.
-In this equation, $a_0 = 0.5677 \pm 0.015$ while $b_0 = 0.90 \pm 0.03$.
-This relationship is known as a power law, as many professional AllSky systems' data match it well.
-The flux is dependent on three things: the number of events, the time of observation, and the area of the sky observed.
-The longer we use the system, the more precise, but not necessarily more consistent, our flux will be. 
+In this equation, $a_0 = 0.5677 \pm 0.015$ while $b_0 = 0.90 \pm 0.03$.\comment{You need to make absolutely clear that this is an empirically derived equation. There is no theory here.}
+This relationship is known as a power law, and many professional allSky systems' data match it well.\comment{This sentence seems pointless when you can just show them the image indicating as much. In fact you should really lead with the image.}
+The flux is dependent on three things: the number of events, the time of observation, and the area of the sky observed.\comment{THIS is what you should be leading with}
+The longer we use the system, the more precise, but not necessarily more consistent, our flux will be.\comment{I get what you are saying, but this seems a bit disjointed and then you don't follow up or discuss any more about it.} 
 
 One factor that is particularly difficult to deal with when considering flux is the area of the sky that is being observed at a given time.
-Derived using basic trigonometry, we know 
-
+Using basic trigonometry, we can work out that:
 \begin{equation}
 \text{Sky Coverage} = \Omega(h+r)^2
+\label{eq:skycov}
 \end{equation}
-
-where $\Omega$ is the steradian, or solid angle from earth, $h$ is the height above Earth's surface, and $r$ is the radius of Earth. 
+where $\Omega$ is the steradian, or solid angle from earth, $h$ is the height above Earth's surface, and $r$ is the radius of Earth. \comment{All important equations should have a number and be referenced by that number in the text. If an equation isn't important enough to be referenced directly in the text, it shouldn't get a number.}
 The CCD fish-eye camera that we use spans approximately $140\deg$.
-When assuming that the height of the fireball is approximately $75$km from Earth's surface, we learn that our camera covers about $119,000$km$^2$.  
-That area translates to about $0.023$ percent of Earth's total surface.
+Assuming that the height of the fireball is approximately $75$km from Earth's surface, we learn that our camera covers about $119,000$km$^2$ of sky.
+That area translates to about $0.023$ percent of Earth's total surface.\comment{Is this comparing sky area to Earth area? Seems a little odd.}
 This fact solidifies the importance of many fireball camera systems, as an individual only covers a small fraction of Earth's total surface area.
 
 One might naively assume that the total observation area would remain consistent each night.
