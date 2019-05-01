@@ -260,10 +260,22 @@ This creates many more combinations than if we were to only consider unique star
 After calculating all potential angular separation per pixel values alongside their location information, we may move on to calculating average angular separation per pixel in different camera regions.
 For the sake of dividing our field of view into different pixel regions, we split up our $720 \times 480$ pixel camera frame into $40 \times 40$ pixel squares.
 This also allows us to observe the difference in angular distance per pixel ratios across the entire field of view
-All angular separation per pixel measurements located inside a given square were averaged over to determine that square's value.
+
+\begin{figure}[h]
+  \centering
+  \makebox[\textwidth][c]{\includegraphics[width=1.2\textwidth]{images/rotated_pixels.png}}
+  \caption{Left: our angular separation per pixel data set. Right: that same data set with two rotated and appended data sets.}
+  \label{rotate}
+\end{figure}
 
 
-
+There are $216$ total pixel regions and only so many angular separation per pixel data points.
+Some pixel regions that do not contain any data points.
+By assuming that our field of view has rotational symmetry, we can rotate and append new data to our set.
+Figure \ref{rotate} shows one data set that is rotated twice in $10 \degree$ increments.
+For the sake of this project, we rotated our original data $360 \degree$ in $5 \degree$.  
+This allowed us to fill in all of the empty regions and multiply our data set quantity by over $50$.
+All angular separation per pixel measurements located inside a given square were then averaged over to determine that square's average angular separation per pixel value.
 
 \section{Calculating Cloud Coverage}
 
@@ -288,7 +300,7 @@ The first of these functions fills in regions of empty space that are next to fi
 This is helpful in closing gaps between pixels that represent clouds.
 However, because the edges of the clouds are expanded in this process, we must subsequently perform a \texttt{MORPH\_ERODE} that works in the opposite fashion.
 Once a hole is completely closed, there is no space within a cloud for the eroding function to open up, hence providing a satisfying answer to the cloud predicament. 
-The difference between a thresholded image and the subsequently closed/eroded image can be seen in the upper-right and lower-left panels of Fig. ~\ref{colorful2}.
+The difference between a thresholded image and the subsequently closed/eroded image can be seen in the upper-right and lower-left panels of Fig. ~\ref{colorclouds}.
 We may observe that this method fills in a vast majority of the small dark holes in the thresholded image.
 
 After this successful threshold and subsequent closing/eroding process is complete, the next step is implementing the relationships between pixels and angular distance.
