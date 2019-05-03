@@ -38,7 +38,7 @@ Figure \ref{jed} summarizes the relationship between these 5 terms.
 \begin{figure}[ht!]
   \centering
   \includegraphics[scale=0.3]{images/jed_zoomedin.png}
-  \caption{A depiction of near-Earth object classification.  Asteroids and meteoroids may be found in space, while meteors and their brighter counterpart, fireballs, burn up through Earth's atmosphere.  Unlike ordinary fireballs, meteorites remain intact }
+  \caption[A depiction of near-Earth object classification.]{A depiction of near-Earth object classification.  Asteroids and meteoroids may be found in space, while meteors and their brighter counterpart, fireballs, burn up through Earth's atmosphere.  Unlike ordinary fireballs, meteorites remain intact }
   \label{jed}
 \end{figure}
 
@@ -153,7 +153,7 @@ Below, we will discuss the design of the D6 allsky camera while also highlightin
 \begin{figure}[ht!]
   \centering
   \includegraphics[scale=0.7]{images/allsky_camera.png}
-  \caption{The Willamette D6 allsky camera (2016). Paired with a little imagination it resembles an astromech droid from Star Wars.\inlinecomment{We should get a new image of this, as it has the sealing cowl along the top now.}}
+  \caption{The Willamette D6 Allsky Camera (2016). Paired with a little imagination it resembles an astromech droid from Star Wars.\inlinecomment{We should get a new image of this, as it has the sealing cowl along the top now.}}
   \label{droid}
 \end{figure}
 
@@ -293,7 +293,7 @@ Equation \ref{eq:mass} can be used to determine the initial mass of an ablating 
 m = \int \frac{2L}{\tau v^2} dt
 \label{eq:mass}
 \end{equation}
-where $L$ is the luminosity, $dt$ is the change in time, $v$ is velocity, and $tau$ is the luminous efficiency. 
+where $L$ is the luminosity, $dt$ is the change in time, $v$ is velocity, and $\tau$ is the luminous efficiency. 
 
 
 \subsection{Time Observed}
@@ -324,7 +324,30 @@ If it were to travel from one horizon directly through the zenith to the other h
 If we know the angular distance traveled and the total number of pixels traversed, we can establish a relationship between the two and get a precise steradian value.
 Plugging this value into Eq. \ref{area_eq} yields a sky coverage area.
 
+Equation \ref{area_eq} does well to describe a purely conic field of view.
+As we will see see in our methods section, it is also useful to know the area of a rectangular pyramid.
+Specifically, we want to know the surface area of a rectangular pyramid's base that has been projected to have a constant radius. 
+This resulting area appears as a curved surface that could be imagined as a small square cutout of a sphere.
+We see in Fig. \ref{useful_area_equation} a depiction of this shape as well as some equations that help calculate the base's surface area.
+With respect to the two angles $a$ and $b$ that determine the size of the base, we find that:
+
+\begin{equation}
+    \text{Area of Base} = 
+    4 \arcsin{(\sin{(\frac{a}{2})}\sin{(\frac{b}{2})})} r^2
+    \label{small_area_eq}
+\end{equation}
+
+where $r$ represents the distance to the area of the sky you are observing.
+We will see this equation applied in the methods section when converting angular measurements to kilometer measurements.
+
 One might naively assume that the total observation area would remain consistent each night.
 However, one must consider clouds and fog when calculating the overall sky area covered.
 This consideration will be dealt with in our secondary analysis and is further discussed in the methods section.
-'
+
+
+\begin{figure}[ht!]
+  \centering
+  \includegraphics[scale=0.4]{images/rectangular_pyramid.png}
+  \caption{A visual depiction of the surface area of the base of a fixed radius rectangular pyramid, marked $A$, alongside supporting equations.}
+  \label{useful_area_equation}
+\end{figure}
