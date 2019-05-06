@@ -24,7 +24,7 @@ By observing the magnitude, duration, and other properties of individual firebal
 \begin{figure}[ht!]
   \centering
   \includegraphics[scale=0.9]{images/flux_brown.png}
-  \caption{A plot of bolide flux vs. energy and diameter using a wide collection of data.\inlinecomment{This figure is not referenced in the text and is not well explained in the caption.}}
+  \caption[A plot of bolide flux vs. energy and diameter using a wide collection of data.]{A plot of bolide flux vs. energy and diameter using a wide collection of data.  The two $x-$axes represent physical characteristics of fireballs while the $y-$axis represent various flux rates.  We see that larger and more energetic events are far less likely than their less powerful counterparts.  We hope to eventually compare our flux rates to low-energy collision flux rates depicted in this plot.}
   \label{brown}
 \end{figure}
 
@@ -32,14 +32,16 @@ Studying these near-Earth objects can give us good estimates for how many object
 This measurement is called flux.
 By determining flux, we can more accurately predict the likelihood of objects in space being hit by near-Earth objects. 
 Although the case may have been an extreme one, the space satellite Olympus was struck and destroyed by a meteoroid during the Perseid meteor shower in 1993 \cite{bobrowsky_comet/asteroid_nodate}.
-Additionally, given the relationships between the number of objects hitting Earth per time for different objects, we can estimate the probability of extremely large impacts on earth.\comment{Sentence is a little awkward. I had to read it again and I know basically what you are trying to say.}
+An accurate flux estimate would allow us to estimate the probability that a fireball of a given mass would collide with Earth.
 These estimates, similarly to predictions surrounding volcanic or earthquake activity, give us insight into past events and help us foresee likelihoods of future events.
 
 This project aims to analyze the feasibility of the Willamette D6 AllSky camera, a new alternative camera system for conducting fireball research. 
-Occupying about the same space as a traffic cone, this camera is easily transportable and does not require an expensive computational base\comment{I get what you are saying, but others likely will not.}.
+Occupying about the same space as a traffic cone, this camera is easily transportable.
+Contrasting many existing systems that run using powerful computers, our camera is operated by a microcontroller.
 To determine the feasibility of our setup, we will compare our measured flux rates to those found by more well-established systems.
-Peter Brown, an astronomy researcher, created a now-famous relationship between flux and bolide energy/diameter.\comment{citation?} 
+Peter Brown, an astronomy researcher, created a now-famous relationship between flux and bolide energy/diameter \cite{brown_p_flux_2002}.
 As seen in Figure~\ref{brown}, bolides with extremely high energies are far less likely to collide with earth than their less energetic counterparts.
 By comparing our flux rates to those found in Figure~\ref{brown} (for small energies), we can assess how consistent our data is with existing professional systems.
 
-This paper is broken up into several sections for ease of reading. Chapter 2 details useful information surrounding fireballs, their importance, existing research, and the theory necessary to calculate flux rates.\comment{And the rest?}
+This paper is broken up into several sections for ease of reading. Chapter 2 details useful information surrounding fireballs, their importance, existing research, and the theory necessary to calculate flux rates. 
+The remaining chapters focus on our methods, data, and final conclusions.   
