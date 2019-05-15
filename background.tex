@@ -20,15 +20,12 @@ This loss of kinetic energy is turned into heat and is hot enough to vaporize ou
 Atoms within these vaporized outer layers and nearby air molecules get energetically excited and then release light as they relax back to their natural state.
 The amount of light that reaches an observer on Earth's surface can be measured in terms of apparent magnitude.
 Magnitude is represented on an inverse $\log_{10}$ scale where dimmer objects are represented by high numbers and brighter objects are lower, and in many cases negative, values.
-Magnitude is calculated as:
-
+Magnitude is calculated as
 \begin{equation}
-m = -2.5 \log_{10}(I/I_0)
+m = -2.5 \log_{10}(I/I_0),
 \label{magnitude_equation}
 \end{equation}
-
- 
-where $I$ is the intensity of the meteor/fireball and $I_0$ is the intensity of a reference brightness.  
+ where $I$ is the intensity of the light from a meteor/fireball and $I_0$ is the intensity of a reference object's light.  
 Both intensity measurements are in units of $\si{\watt/\meter^2}$.
 Meteors with an apparent magnitude below $-4$ qualify as bolides or fireballs.
 For reference, in its brightest phase, Venus is a magnitude $-4.4$ planet while the dimmer Jupiter has a magnitude of $-2.1$ \cite{rao_venus_nodate}.
@@ -77,7 +74,7 @@ Collecting information on fireball events allows astronomy researchers to develo
 
 To compare our camera system to other professional systems, we must acquire enough event data to determine a flux rate.  
 This section will discuss how different observation systems collect data on fireballs.
-Particular emphasis will be placed on how the Willamette D6 Allsky Camera differs from professional cameras.
+Particular emphasis will be placed on how the Willamette D6 AllSky Camera differs from professional cameras.
 
 
 \subsection{Existing Surveys}
@@ -111,7 +108,7 @@ By spreading their cameras across three separate locations, the CAMS research gr
 Similar to the phenomena of trying to catch a baseball with only one eye open, confidently capturing a three dimensional trajectory of a fireball is extremely difficult when using only one camera.
 Multiple cameras provide different fireball-path perspectives and allow us to geometrically solve for the event's exact position.
 Accurate trajectories are particularly useful in back-tracing the motion of the meteor's orbit.  
-The CAMS team has reduced over $320,000$ of these orbits \cite{peter_jenniskens_cameras_2018}
+The CAMS team has reduced over $320,000$ of these orbits \cite{peter_jenniskens_cameras_2018}.
 
 
 %SPMN
@@ -133,64 +130,65 @@ In contrast, Peter Brown took data from the Department of Defense and the Depart
 The original purpose of these systems is to detect signatures of explosions near Earth's surface, but the system occasionally picks up false positives in the form of ablating bolides in the atmosphere.  
 Because the system detects the amount of power released, Brown and others have used the systems to approximate a fireball's energy.
 In a 2002 article published in \textit{Nature}, Brown estimated the optical energies of around 300 bolides.
-His resulting flux rates are shown in Fig. \ref{brown} of the Introduction Section.
-Drawing from this data set and other existing data sets, Brown compiled Equation~\ref{eq:browneq}, which relates bolide energy to the cumulative number of impacts on Earth each year. 
-
+His resulting flux rates are shown in Fig.\ref{brown} of the Introduction Section.
+Drawing from this data set and other existing data sets, Brown compiled the equation,
 \begin{equation}
-\log N = a_0 - b_0\log E
+\log N = a_0 - b_0\log E,
 \label{eq:browneq}
 \end{equation}
-Here $N$ is the total number of objects colliding with Earth each year and $E$ is the respective energy of the sample in kilotons of TNT \cite{brown_p_flux_2002}.
-In this empirically derived equation, $a_0 = 0.5677 \pm 0.015$ while $b_0 = 0.90 \pm 0.03$.
-This relationship is known as a power law and will be a useful point of comparison for our Willamette D6 Allsky data.
+which relates bolide energy to the cumulative number of impacts on Earth each year. 
+In Equation \ref{eq:browneq}, $N$ is the total number of objects colliding with Earth each year and $E$ is the respective energy of the sample in kilotons of TNT \cite{brown_p_flux_2002}.
+Additionally, in this empirically derived equation, $a_0 = 0.5677 \pm 0.015$ while $b_0 = 0.90 \pm 0.03$.
+This relationship is known as a power law and will be a useful point of comparison for our Willamette D6 AllSky Camera's data.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%
 
 
-\subsection{The D6 Allsky Camera}
+\subsection{The D6 AllSky Camera}
 
 % Overview
-The Willamette University D6 Allsky Camera was created in 2016 to capture images of fireballs streaking through the night sky.
+The Willamette University D6 AllSky Camera was created in 2016 to capture images of fireballs streaking through the night sky.
 The aim of the project was to create an economically feasible and highly mobile observational system.
 It is composed of a portable structure surrounding a monochrome security camera that is particularly light-sensitive.
-The inside also host some necessary supporting devices, including a controlling Raspberry Pi. \cite{mcswain_using_2016}.
+The inside also host some necessary supporting devices, including a controlling Raspberry Pi \cite{mcswain_using_2016}.
 The assembly resembles a Star Wars astromech droid, and acquired its name from this inspiration.
 The enclosure with visible camera is shown in Figure~\ref{droid}.
-The D6 Allsky Camera is currently operational and has been gathering data since the summer of 2018.  
-Below, we will discuss the design of the D6 Allsky Camera while also highlighting what makes it significant.
+The D6 AllSky Camera is currently operational and has been gathering data since the summer of 2018.  
+Below, we will discuss the design of the D6 AllSky Camera while also highlighting what makes it significant.
 
 \begin{figure}[ht!]
   \centering
   \includegraphics[scale=0.7]{images/allsky_camera.png}
-  \caption{The Willamette D6 Allsky Camera (2016). Paired with a little imagination it resembles an astromech droid from Star Wars.}
+  \caption{The Willamette D6 AllSky Camera (2016). Paired with a little imagination it resembles an astromech droid from Star Wars.}
   \label{droid}
 \end{figure}
 
 
 % Components
-The components of the D6 Allsky Camera are comprised primarily of 5 different pieces: the camera housing, a CCD camera, a thermostat and resistive heater, a video digitizer, and the Raspberry Pi to control everything.
+The components of the D6 AllSky Camera are comprised primarily of 5 different pieces: the camera housing, a CCD camera, a thermostat and resistive heater, a video digitizer, and the Raspberry Pi to control everything.
 The acrylic dome and PVC shell form the exterior of our system. 
 The dome itself is a transparent half sphere that sits on top of a PVC cylinder that holds the system together.
 Both act as a protective layer between the sensitive inside components and the outside environment.  
 Without this feature, the system would be subject to rain, snow, dew, bug contamination, and other undesired effects.
 
 The CCD camera is perhaps the most important feature of the system.
-The Watec $902$H$2$ CCD camera uses a Computer fish-eye lens to observe a large swathe of the visible night sky.
+The Watec $902$H$2$ CCD camera uses a fish-eye lens to observe a large swathe of the visible night sky.
 It was chosen due to its extremely high sensitivity and decent resolution and frame-rates \cite{noauthor_wat-902h2_nodate}.
 However, it should be noted that more expensive systems consisting of multiple cameras (like CAMS) provide an even higher resolution of fireball events.
 
 Throughout the night, the system itself requires some thermal regulation.
-The inside components are kept at a relatively constant temperature above the dew point by a thermostat and a fan system.
+The inside components are kept at a relatively constant temperature above the dew point by a thermostat that is paired to a heating resistor.  
+A fan system also serves to prevent the camera from overheating.
 The camera outputs an analog signal which requires the use of a digitizer before it can be processed by the Raspberry Pi.
 The coaxial signal is sent to the digitizer before connecting to the Raspberry Pi via USB.
 
 % Uniqueness
-While there are several similarities in the composition of our D6 Allsky Camera to existing systems, there are several key differences.
+While there are several similarities in the composition of our D6 AllSky Camera to existing systems, there are several key differences.
 The most prominent of these are the size, versatility, and cost of our system.
-Around the size of a basketball, the D6 Allsky Camera system is extremely compact.
-Other systems, such as the CAMS camera setups are rooted to extremely powerful computers that have little to no mobility as shown in Figure~\ref{immobile}.
-Alternatively, the D6 AllSky Camera has a microcontroller serving as its primary analysis hardware, contained within the system's protective case.
+Around the size of a basketball, the D6 AllSky Camera system is extremely compact.
+Other systems, such as the CAMS camera setups are rooted to powerful computers that have little to no mobility as shown in Figure~\ref{immobile}.
+The D6 AllSky Camera has a microcontroller serving as its primary analysis hardware, contained within the system's protective case.
 Not only is it small, but our system relies only on a single power cord for power.  
 Because of this, the camera can be easily picked up and relocated to any setting that has a power source.  
 The system has low power requirements and it should be possible to run from a battery if remote placement is desirable in the future.
@@ -204,10 +202,10 @@ The system has low power requirements and it should be possible to run from a ba
 
 Other entrenched systems encounter difficulties such as building renovation interference or sporadic light pollution issues.
 For example, if a tree were to grow near the camera or a new street lamp erected, it would need to be chopped down or the entire system may need to be relocated.
-With the lightweight and portable D6 Allsky Camera, relocation is not a difficult process.
+With the lightweight and portable D6 AllSky Camera, relocation is not a difficult process.
 
-Additionally, the D6 Allsky Camera is a less expensive alternative to other fireball analysis tools.
-Running initial analysis on a microcomputer allows the D6 Allsky Camera to cost a fraction of what professional systems cost.
+Additionally, the D6 AllSky Camera is a less expensive alternative to other fireball analysis tools.
+Running initial analysis on a microcomputer allows the D6 AllSky Camera to cost a fraction of what professional systems cost.
 Although large professional organizations produce copious amounts of high-quality data, in the field of fireball research, amateur systems outnumber professional systems $2:1$ \cite{gural_review_2005}. 
 Providing a cost efficient alternative could be a great way to expand the field of fireball research and in turn provide a better understanding of the near-Earth objects in our solar system.
 
@@ -235,9 +233,9 @@ In an initial sample of over $700$ videos, only $2$ of them contained real event
 The vast majority of the videos were of bugs crawling across the acrylic dome.
 Because the bugs are illuminated by nearby light, they appear to be bright spots traveling across the screen and thus the detection script mistakenly flags them as fireball events.
 Moreover, many bugs are featured in several videos as they have a tendency to move, stop somewhere, and move again.
-While this is somewhat problematic, implemented several steps to limit the number of false positive bug cases. 
-These new steps reduced the false positive rates by over $50\%$.
-We aim to implement video length restrictions, and linear motion restrictions to limit the number of false positives.
+While this is somewhat problematic, we crafted several secondary-analysis steps to limit the number of false positive bug cases.
+These included video length and linear motion restrictions.
+Once incorporated, these steps reduced the false positive rates by over $50\%$.
 
 In addition to bugs, other events such as airplanes, satellites, and Iridium flares provide false-positive videos.
 Their near-linear motion and bright presence are an instant trigger for our fireball detection algorithm.  
@@ -245,7 +243,8 @@ By sifting through these false-positives and recognizing important distinguishin
 
 A larger problem in data analysis stems from the phenomena of atmospheric extinction.
 As shown in Figure~\ref{extinc}, when looking close to the horizon, light must travel through a larger volume of atmosphere than it does for an observation close to the zenith.  
-Because the light travels through more atmosphere, more of the light is absorbed by gases or scattered by air particulates \cite{hughes_atmospheric_2016}, which reduces in an overall reddening and reduction of the light brightness.
+Because the light travels through more atmosphere, more of the light is absorbed by gases or scattered by air particulates \cite{hughes_atmospheric_2016}, which results in an overall reddening and reduction of the light brightness.
+
 
 
 \begin{figure}[ht!]
@@ -256,9 +255,9 @@ Because the light travels through more atmosphere, more of the light is absorbed
 \end{figure}
 
 
-Using celestial data taken from D6 AllSky Camera snapshots, in this project we set some basic groundwork for accounting for atmospheric extinction in a secondary photometric analysis script.
-This will involve measuring the light intensity of known reference stars at various pixel locations throughout the night and comparing them to the known magnitude values.
-This will allow us to have calibration values for different pixel locations throughout our camera's frames, and thus will be applicable to any event's analysis.
+Using celestial data taken from D6 AllSky Camera snapshots, we located the positions of reference stars in several snapshots.
+By measuring the light intensity of these reference stars at various pixel locations throughout the night and comparing them to the known magnitude values, we can estimate atmospheric extinction effects in different camera regions.
+While this project does not focus on accounting for atmospheric extinction, future research directions include creating a secondary photometric analysis script to account for this effect.
 
 
 \section{Parameters of Interest}
@@ -273,15 +272,14 @@ This section will detail how we will go about collecting this information.
 Because of the limitations of using one camera system, we will make several key assumptions in determining any fireball's initial mass and energy.  
 Firstly, we assume the velocity of the fireball.
 For meteor shower events, this will vary depending on the associated meteor shower.
-For sporadic events, we will use a separate pre-determined velocity.
+For sporadic events, we will use the mean impact velocity as determined by existing research.
 Additionally, we will assume a luminous efficiency, $\tau$, on a similar basis.
-Equation~\ref{luminous} can be used to determine the optical energy of a fireball \cite{brown_p_flux_2002}.
 
 \begin{equation}
  \tau = (0.1212 \pm 0.0043)E_0^{0.115 \pm 0.075} 
  \label{luminous}
 \end{equation}
-
+describes the relationship between luminous efficiency, $\tau$, and optical energy, $E_0$ \cite{brown_p_flux_2002}.
 Optical energy is useful, as it proved us a relationship to total fireball energy through Equation~\ref{energies}.
 Peter Brown empirically derived a formula relating optical energy to total energy, as seen in Equation~\ref{energies} \cite{brown_p_flux_2002}.
 
@@ -289,41 +287,53 @@ Peter Brown empirically derived a formula relating optical energy to total energ
 E = 8.2508(E_0)^{0.885}
  \label{energies}
 \end{equation}
-
 Now that we have a clear image of how to determine energy, we can transition to finding the initial mass of a given event.
 To do this, we need to attain the objects luminous efficiency (described in Equation \ref{luminous}), the object's velocity (assumed), and the objects luminosity.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 The light curve outputted by our photometry program gives us light intensity at any given time.
-The luminosity is then related to the intensity of the fireball through the following formula,
+Intensity reflects the amount of light we receive from a single point on Earth, while luminosity refers to the total amount of light given off in all directions.
+If we assume that the fireball is radiating light in all directions equally, we can use the equation for the surface area of a sphere to get the following relation,
 
 \begin{equation}
  I = \frac{L}{4 \pi r^2}
 \label{intensity}
 \end{equation}
-
 where $I$ is the intensity, $L$ is the luminosity, and $r$ is the distance between the observer and the object. 
 The distance $r$ is assumed to be \SI{114}{\kilo\meter}, in accordance with existing surveys.
-This luminosity will help us estimate the initial mass of the object in question.
-Pulling it all together, Equation~\ref{eq:mass} can be used to determine the initial mass of an ablating meteor,
+
+
+Luminous efficiency, $\tau$, describes how well an object is able to give off light.  
+In our calculations, we assume that all of the light that radiates from a fireball is a result of kinetic energy (motion).
+Relating this assumption to the general kinematic equation for kinetic energy we observe
 
 \begin{equation}
-m = \int \frac{2L}{\tau v^2} dt
+\frac{1}{2}mv^2 = \text{K.E.} = \frac{L}{\tau},
+\label{KE}
+\end{equation}
+where $m$ is the mass of the object, $v$ is its velocity, $L$ is its luminosity, and $\tau$ is the luminous efficiency. 
+We may algebraically manipulate the left and right sides of Equation \ref{KE} to solve for mass.
+After doing so, we account for the changing velocity and luminosity of the fireball in time by introducing an integral.
+After performing these steps, we find
+\begin{equation}
+m = \int \frac{2L}{\tau v^2} dt,
 \label{eq:mass}
 \end{equation}
+where the new variable, $dt$, represents the change in time.
 
-where $L$ is the luminosity, $dt$ is the change in time, $v$ is velocity, and $\tau$ is the luminous efficiency. 
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-
-Paired with our assumption that fireballs on average have a density of \SI{3000}{\kilo\gram \per \meter^{3}} and a generally spherical shape, we can calculate the fireball's diameter using Equation~\ref{diameter},
-
+After estimating a fireball's energy and mass, the final step is to estimate a radius.
+To do this, we assume that fireballs on average have a density of \SI{3000}{\kilo\gram \per \meter^{3}} and reflect a generally spherical shape.
+Using the definition of density along with an assumed spherical volume we observe that
 \begin{equation}
-d = 2(\frac{3m}{4\pi \rho})^{1/3}
+\rho = \frac{m}{V} =  \frac{3m}{4\pi r^3}
+\label{density}
+\end{equation}
+where $\rho$ represents the density of the fireball prior to entering the atmosphere, $m$ represents its mass, and $r$ represents its radius.
+By solving the left and right sides of Equation~\ref{density} for the radius and recognizing that the radius is half of the diameter, we attain the relationship,
+\begin{equation}
+d = 2(\frac{3m}{4\pi \rho})^{1/3}.
 \label{diameter}
 \end{equation}
 
-where $\rho$ represents the density of the fireball prior to entering the atmosphere and $m$ represents its mass. 
 Using equations \ref{energies}-\ref{diameter}, we can estimate physical properties of fireballs from photometric observations.
 These physical properties will help us determine property distributions of fireballs as well as contribute to energy/mass binned flux rates as seen in Fig.~\ref{brown}.
 
@@ -331,66 +341,65 @@ These physical properties will help us determine property distributions of fireb
 
 \subsection{Time Observed}
 
-Each individual video or night snapshot taken by the Willamette D6 Allsky Camera is labeled with a time stamp.  
-In addition to this useful time documentation, when operating, our D6 Allsky Camera has a running log of its functions.
+Each individual video or night snapshot taken by the Willamette D6 AllSky Camera is labeled with a time stamp.  
+In addition to this useful time documentation, when operating, our D6 AllSky Camera has a running log of its functions.
 This well-kept documentation allows us to keep track of the total observation time, a critical component of determining flux.  
 However, there are certain limitations associated with the amount of time we can observe.
 
-Primarily taking data in Salem, Oregon, the Willamette D6 Allsky Camera is subject to weather in the Pacific Northwest.  
+Primarily taking data in Salem, Oregon, the Willamette D6 AllSky Camera is subject to weather in the Pacific Northwest.  
 Rain and cloudy nights limit the number of days we may take data.
 Luckily, the versatility of the camera system allows for it to be taken to alternative locations during school breaks or periods of bad weather.
+The camera was moved to eastern Oregon for a short time during Willamette's winter break.
 
 
 \subsection{Total Observation Area}
+
 One factor that is particularly difficult to deal with when considering flux is the area of the sky that is being observed at a given time.
-Using basic trigonometry, we can work out that:
+Geometrically, we find that
 \begin{equation}
-    \text{Sky Coverage} = \Omega(h+r)^2
+    \text{Sky Coverage} = \Omega R^2,
     \label{area_eq}
 \end{equation}
-where $\Omega$ is the steradian, or solid angle from Earth, $h$ is the height above Earth's surface, and $r$ is the radius of Earth.
-Figure \ref{solid_ang} illustrates a visual depiction of the steradian.  
+where $\Omega$ is the solid angle of the observable area and $R$ is the distance from the center of earth to the height of the sky we are observing \cite{russell_photometry_2018}.
+Figure \ref{solid_ang} illustrates a visual depiction of the solid angle.  
 
 \begin{figure}[ht!]
   \centering
   \includegraphics[scale=0.07]{images/solidangle.png}
 %   \setcaptioncitation{https://socratic.org/questions/how-much-of-the-total-energy-that-leaves-the-sun-makes-it-to-earth-why}
-  \caption{A depiction of the steradian, $\Omega$ of a conic surface area located on a sphere of radius $R$.}
+  \caption{A depiction of the solid angle, $\Omega$ of a conic surface area located on a sphere of radius $R$.}
   \label{solid_ang}
 \end{figure}
 
-We will get a steradian value for our setup by comparing angular separations to pixel distances in our camera images.
+We will get a solid angle value for our setup by comparing angular separations to pixel distances in our camera images.
 To expand on this, as the Moon travels through the night's sky, it changes locations on our observable hemisphere.
 Differences in location on the hemisphere can be described by the angle they form with respect to the observer, the angular separation.
-If it were to travel from one horizon directly through the zenith to the other horizon, it would have traveled an angular separation of $180 \deg$.  
-If we know the angular separation traveled and the total number of pixels traversed, we can establish a relationship between the two and get a precise steradian value.
+If it were to travel from one horizon directly through the zenith to the other horizon, it would have traveled an angular separation of $180 \degree$.  
+If we know the angular separation traveled and the total number of pixels traversed, we can establish a relationship between the two and get a precise solid angle value.
 Plugging this value into Equation~\ref{area_eq} yields the area of sky observed.
 Equation~\ref{area_eq} does well to describe a purely conic field of view.
-As we will see see in our methods section, it is also useful to know the area of a rectangular pyramid.
-Specifically, we want to know the surface area of a rectangular pyramid's base that has been projected to have a constant radius. 
-This resulting area appears as a curved surface that could be imagined as a small square cutout of a sphere.
+As we will see see in our methods section, it is also useful to know the area of a rectangular solid angle.
+A rectangular solid angle appears similar to a rectangular pyramid but has a curved rectangular base instead of a flat one.
 We see in Figure~\ref{useful_area_equation} a depiction of this shape as well as some equations that help calculate the base's surface area.
-With respect to the two angles $a$ and $b$ that determine the size of the base, we find that:
+With respect to the two angles $a$ and $b$ that determine the size of the base,
 
 \begin{equation}
-\Omega =  4 \arcsin{(\sin{(\frac{a}{2})}\sin{(\frac{b}{2})})}
+\Omega =  4 \arcsin{(\sin{(\frac{a}{2})}\sin{(\frac{b}{2})})},
 \label{steradian1}
 \end{equation}
-
-where $\Omega$ is the shape's steradian.  
-The steradian can be further used to help find the area of the base via the formula:
+where $\Omega$ is the shape's solid angle \cite{wiki:Solid_angle}.  
+The solid angle can be further used to help find the area of the base via the formula,
 \begin{equation}
-\Omega = \frac{A}{r^2}
-\label{steradian1}
+\Omega = \frac{A}{r^2},
+\label{steradian2}
 \end{equation}
-where $r$ represents the distance to the area of the sky you are observing.
-Using basic substitution and algebra, we find that the resulting equation for the area of the base in terms of the distance $r$ and the two angles $a$ and $b$ is:
+where $A$ represents the desired area and $r$ represents the distance to the area of the sky you are observing.
+Using basic substitution and algebra, we find that the resulting equation for the area of the base in terms of the distance $r$ and the two angles $a$ and $b$ can be represented mathematically by the formula,
 
 \begin{equation}
-A =  4 \arcsin{(\sin{(\frac{a}{2})}\sin{(\frac{b}{2})})} r^2
+A =  4 \arcsin{(\sin{(\frac{a}{2})}\sin{(\frac{b}{2})})} r^2,
 \label{small_area_eq}
 \end{equation}
-
 where $r$ represents the distance to the area of the sky you are observing.
 We will see this equation applied in the methods section when converting angular measurements to kilometer measurements.
 
@@ -402,7 +411,7 @@ This consideration will be dealt with in our secondary analysis and is further d
 \begin{figure}[ht!]
   \centering
   \includegraphics[scale=0.4]{images/rectangular_pyramid.png}
-  \caption[A visual depiction of the surface area of the base of a fixed radius rectangular pyramid, marked $A$, alongside supporting equations.]{A visual depiction of the surface area of the base of a fixed radius rectangular pyramid, marked $A$, alongside supporting equations.  The steradian $\Omega$ is not marked on the leftmost figure because it represents an angle not visible and should not be confused with angles $a$ or $b$.}
+  \caption[A visual depiction of the surface area of the base of a fixed radius rectangular solid angle, marked $A$, alongside supporting equations.]{A visual depiction of the surface area of the base of a fixed radius rectangular solid angle, marked $A$, alongside supporting equations.  The solid angle, $\Omega$ is not marked on the leftmost figure because it represents an angle not visible and should not be confused with angles $a$ or $b$.}
   \label{useful_area_equation}
 \end{figure}
 
